@@ -16,6 +16,7 @@
 		C0583DAC2B19C89E00A746C2 /* CustomEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = C0583DAB2B19C89E00A746C2 /* CustomEventEmitter.m */; };
 		C0583DB42B1B188200A746C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0583DB32B1B188200A746C2 /* Assets.xcassets */; };
 		C06076682B188EEA00A77614 /* EnvironmentModule.m in Sources */ = {isa = PBXBuildFile; fileRef = C06076672B188EEA00A77614 /* EnvironmentModule.m */; };
+		C0FAA60F2B2990DC003A3CE6 /* exportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0FAA60E2B2990DC003A3CE6 /* exportOptions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C0583DAB2B19C89E00A746C2 /* CustomEventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomEventEmitter.m; sourceTree = "<group>"; };
 		C0583DB32B1B188200A746C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C06076672B188EEA00A77614 /* EnvironmentModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnvironmentModule.m; sourceTree = "<group>"; };
+		C0FAA60E2B2990DC003A3CE6 /* exportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = exportOptions.plist; sourceTree = "<group>"; };
 		C519C01F16AA4C5E1F8EFE4F /* libPods-nanhaishop-nanhaishopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nanhaishop-nanhaishopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C523E80EA6C36A1F64F11974 /* Pods-nanhaishop-nanhaishopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanhaishop-nanhaishopTests.debug.xcconfig"; path = "Target Support Files/Pods-nanhaishop-nanhaishopTests/Pods-nanhaishop-nanhaishopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -111,6 +113,7 @@
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				C0FAA60E2B2990DC003A3CE6 /* exportOptions.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				C06076672B188EEA00A77614 /* EnvironmentModule.m */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				C0FAA60F2B2990DC003A3CE6 /* exportOptions.plist in Resources */,
 				C0583DB42B1B188200A746C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './Login'; // 主页组件
-import huaraylogin from './huaraylogin';//華瑞登入
-import page1 from './page1'; // 南海
+import Login from './Nanhai/Login'; // 主页组件
+import huaraylogin from './Huaray/huaraylogin';//華瑞登入
+import page1 from './Nanhai/page1'; // 南海
 import LoadingIndicator from './LoadingIndicator'; // 南海
-import huaraypage from './huaraypage';//公司功能
+import huaraypage from './Huaray/huaraypage';//公司功能
 import { NativeModules,NativeEventEmitter,Platform } from 'react-native';
 import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 

@@ -1,5 +1,6 @@
 import React , { useState } from 'react';
 import type {PropsWithChildren} from 'react';
+import config from '../Config/config';
 import {
   SafeAreaView,
   ScrollView,
@@ -32,11 +33,6 @@ type SectionProps = PropsWithChildren<{
     title: string;
   }>;
 
-  const screen = Dimensions.get('screen');
-  const screenWidtha = screen.width;
-  const screenHeightb = screen.height;
-    const screenWidth = Dimensions.get('window').width;
-    const screenHeight = Dimensions.get('window').height;
   function App({ route,navigation }: any): JSX.Element {
     const [text, setText] = useState('');
     const {ismember}=route.params;
@@ -49,8 +45,8 @@ type SectionProps = PropsWithChildren<{
         fullScreenImage: {
           flex: 1, 
           position: 'absolute', // 使用绝对定位
-          width: screenWidth,
-          height: screenHeightb*1.1, 
+          width:   config.FULL_SCREEN_WIDTH,
+          height: config.FULL_SCREEN_HEIGHT*1.1, 
         
         },
       });
@@ -73,11 +69,11 @@ type SectionProps = PropsWithChildren<{
       behavior={Platform.OS === "ios" ? "padding" : "position"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
         <Image
-        source={require('./pic/bg.jpg')}
+        source={require('../pic/bg.jpg')}
         style={[fullstyles.fullScreenImage]} />
          <View style={[body.block]}>
             <Image
-                source={require('./pic/logo.png')}
+                source={require('../pic/logo.png')}
                 style={[styles.foregroundLayer]}></Image>
          </View>
         
@@ -86,7 +82,7 @@ type SectionProps = PropsWithChildren<{
             <TouchableOpacity onPress={()=>setModalVisibleweb(true)}>
                 <View style={[body.cardLayout]}>
                         <Image
-                        source={require('./pic/01.png')}
+                        source={require('../pic/01.png')}
                         style={styles.image}
                         />
                         <View >
@@ -113,7 +109,7 @@ type SectionProps = PropsWithChildren<{
         <TouchableOpacity onPress={()=>setModalVisibleshop(true)}>
             <View style={[body.cardLayout]}>
                     <Image
-                    source={require('./pic/04.png')}
+                    source={require('../pic/04.png')}
                     style={styles.image}
                     />
                     <View >
@@ -138,7 +134,7 @@ type SectionProps = PropsWithChildren<{
         <TouchableOpacity onPress={()=>setModalVisibleorder(true)}>
             <View style={[body.cardLayout]}>
                     <Image
-                    source={require('./pic/05.png')}
+                    source={require('../pic/05.png')}
                     style={styles.image}
                     />
                     <View >
@@ -163,7 +159,7 @@ type SectionProps = PropsWithChildren<{
             <TouchableOpacity onPress={()=>setModalVisiblemember(true)}>
             <View style={[body.cardLayout]}>
                     <Image
-                    source={require('./pic/03.png')}
+                    source={require('../pic/03.png')}
                     style={styles.image}
                     />
                     <View >
@@ -193,7 +189,7 @@ type SectionProps = PropsWithChildren<{
         <TouchableOpacity onPress={()=>setModalVisiblecheck(true)}>
                 <View style={[body.cardLayout]}>
                     <Image
-                    source={require('./pic/02.png')}
+                    source={require('../pic/02.png')}
                     style={styles.image}
                     />
                     <View >
@@ -225,22 +221,22 @@ type SectionProps = PropsWithChildren<{
   const body = StyleSheet.create({
     container: {
       flex: 1,
-      width: screenWidtha,
-      height: screenHeightb,
+      width:  config.FULL_SCREEN_WIDTH,
+      height: config.FULL_SCREEN_HEIGHT,
     },
     block:{
       justifyContent: 'center', // 垂直居中
       alignItems: 'center', // 水平居中
-      width: screenWidtha,
-      height: screenHeight*0.15,
+      width:  config.FULL_SCREEN_WIDTH,
+      height: config.FULL_SCREEN_HEIGHT*0.15,
       zIndex: 1, 
    },
    block1:{
   
     justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width: screenWidth,
-    height: screenHeight*0.16,
+    width:  config.FULL_SCREEN_WIDTH,
+    height: config.FULL_SCREEN_HEIGHT*0.16,
    
     zIndex: 1, 
  
@@ -249,8 +245,8 @@ type SectionProps = PropsWithChildren<{
        
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width: screenWidth*0.9,
-        height: screenHeight*0.15,
+        width:  config.FULL_SCREEN_WIDTH*0.9,
+        height: config.FULL_SCREEN_HEIGHT*0.15,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
         zIndex: 1, 
@@ -265,8 +261,8 @@ type SectionProps = PropsWithChildren<{
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:screenWidth*0.2 ,
-        height:screenHeight*0.12,
+        width: config.FULL_SCREEN_WIDTH*0.2 ,
+        height:config.FULL_SCREEN_HEIGHT*0.12,
         borderRadius: 25,
 
       },
@@ -275,8 +271,8 @@ type SectionProps = PropsWithChildren<{
         marginRight: 10,  // 為左邊的卡片添加右邊距
       },
       title: {
-        height:screenHeight*0.08,
-        fontSize: screenWidth*0.09, 
+        height:config.FULL_SCREEN_HEIGHT*0.08,
+        fontSize:  config.FULL_SCREEN_WIDTH*0.09, 
         fontWeight: 'bold',
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居
@@ -288,9 +284,9 @@ type SectionProps = PropsWithChildren<{
       },
  
       foregroundLayer: {
-        width: screenWidth*0.5,
+        width:  config.FULL_SCREEN_WIDTH*0.5,
         padding: 10,
-        height:screenHeight*0.5,
+        height: config.FULL_SCREEN_HEIGHT*0.5,
         resizeMode: 'contain', // 调整图片大小以完整显示
         flexDirection: 'column', // 或 'row'
         justifyContent: 'center',
