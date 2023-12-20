@@ -34,6 +34,9 @@ RCT_EXPORT_MODULE();
     #elif nanhaiRelease
         versionType = 2;
         NSLog(@"nanhaiRelease is defined");
+    #elif nanhaitestRelease
+        versionType = 3;
+        NSLog(@"nanhaitestRelease is defined");
     #else
         versionType = 0;
         NSLog(@"Neither huarayRelease nor nanhaiRelease is defined");

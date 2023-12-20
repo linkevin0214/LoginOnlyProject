@@ -87,14 +87,16 @@ android {
             dimension "versionCode"
             resValue "string", "app_name", "南海入口網"
             buildConfigField "String", "ENVIRONMENT", '"nanhai"'
-
-
-
         }
         HuarayPN{
             dimension "versionCode"
             resValue "string", "app_name", "華瑞入口網"
             buildConfigField "String", "ENVIRONMENT", '"Huaray"'
+        }
+        nanhaitestPN{
+            dimension "versionCode"
+            resValue "string","app_name","南海入口測試版"
+            buildConfigField "String","ENVIRONMENT",'"nanhaitest"'
         }
     }
     signingConfigs {

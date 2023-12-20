@@ -6,6 +6,8 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_DISPLAY_NAME)</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
 	<key>CFBundleExecutable</key>

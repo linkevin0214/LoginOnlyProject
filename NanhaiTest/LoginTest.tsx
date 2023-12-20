@@ -2,8 +2,8 @@ import React , { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import { NativeModules  } from 'react-native';
 const { VersionModule } = NativeModules;
-import CutsomButton from './LoginView';
-import LoginVoid  from './LoginVoid';
+import CutsomButton from './LoginTestView';
+import LoginVoid  from './LoginTestVoid';
 import config from '../Config/config';
 import {
   SafeAreaView,
@@ -21,7 +21,9 @@ import {
   TextInput,
   Alert,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 import {
@@ -64,6 +66,8 @@ type SectionProps = PropsWithChildren<{
       });
       
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+
       <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView 
       
@@ -76,7 +80,9 @@ type SectionProps = PropsWithChildren<{
         
       },
     ]}   
-    behavior={Platform.OS === "ios" ? "padding" : "position"}
+
+    
+    behavior={Platform.OS === "ios" ? "position" : "position"}
     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
  
  <Image
@@ -87,6 +93,7 @@ type SectionProps = PropsWithChildren<{
       source={require('../pic/logo.png')}
       style={[styles.foregroundLayer]}></Image>
          </View>
+        
          <View style={[body.block1]}>
           
       <Text style={[styles.title]}>登入</Text>
@@ -95,19 +102,17 @@ type SectionProps = PropsWithChildren<{
       <View style={[body.block2]}>
       <CutsomButton title="一般登入" onPress={handlePress}/>
       </View>
-     
+
       <View style={[body.block3]}>
-      <TextInput placeholder="員工帳號" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
-
-
+      <TextInput placeholder="員工帳號" placeholderTextColor="#D0D0D0" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
       </View>
-     
+        
+      
    
       <View style={[body.block4]}>
-      <TextInput placeholder="員工密碼" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
+      <TextInput placeholder="員工密碼" placeholderTextColor="#D0D0D0" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
       </View>
-    
-     
+ 
       <View style={[body.block5]}>
       <CutsomButton title="登入" onPress={handlePressByMember}/>
       </View>
@@ -117,6 +122,7 @@ type SectionProps = PropsWithChildren<{
      
       </KeyboardAvoidingView >
      </SafeAreaView>
+     </TouchableWithoutFeedback>
     );
   }
   const body = StyleSheet.create({
@@ -163,7 +169,7 @@ block4:{
   justifyContent: 'center', // 垂直居中
   alignItems: 'center', // 水平居中
   width: config.FULL_SCREEN_WIDTH,
-  height: config.FULL_SCREEN_HEIGHT*0.15,
+  height: config.FULL_SCREEN_HEIGHT*0.1,
  
   zIndex: 1, 
 
@@ -180,28 +186,23 @@ block5:{
   });
   const styles = StyleSheet.create({
  
-      text: {
-        color: 'white',
-        fontSize: config.FULL_SCREEN_WIDTH*0.05, 
-      },
+    
       input: {
         width:'50%',
-        height:config.FULL_SCREEN_HEIGHT,
-        fontSize: 20, 
-        justifyContent: 'center', // 垂直居中
+        height:config.FULL_SCREEN_HEIGHT*0.08,
+        fontSize: config.FULL_SCREEN_WIDTH*0.05,
         alignItems: 'center', // 水平居中
         textAlign: 'center', // 这会让 placeholder 文本和用户输入的文本都居中
         backgroundColor: '#EFF4FA', // 可选背景色
-   
         borderRadius: 50,
-       
+        padding:10,       
       },
       input1: {
         width:'50%',
-        height:config.FULL_SCREEN_HEIGHT,
+        height:config.FULL_SCREEN_HEIGHT*0.08,
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        fontSize: 20, // 这也会影响 placeholder 文本的字体大小
+        fontSize: config.FULL_SCREEN_WIDTH*0.05, // 这也会影响 placeholder 文本的字体大小
         backgroundColor: '#EFF4FA', // 可选背景色
     
         borderRadius: 50,

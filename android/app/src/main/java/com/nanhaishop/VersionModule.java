@@ -30,6 +30,10 @@ public class VersionModule extends ReactContextBaseJavaModule {
             String result = "2" ;
             callback.invoke(result);
         }
+        if(BuildConfig.FLAVOR.equals("nanhaitestPN")){
+            String result = "3" ;
+            callback.invoke(result);
+        }
     }
 
 }

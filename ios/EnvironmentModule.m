@@ -18,8 +18,10 @@ RCT_EXPORT_METHOD(getBuildConfiguration:(RCTResponseSenderBlock)callback)
 {
   #ifdef DEBUG
     NSString *config = @"Debug";
-  #elif STAGING
+  #elif huarayRelease
     NSString *config = @"huarayRelease";
+  #elif nanhaitestRelease
+    NSString *config = @"nanhaitestRelease";
   #else
     NSString *config = @"nanhaiRelease";
   #endif
