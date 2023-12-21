@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './Nanhai/Login'; // 主页组件
-import huaraylogin from './Huaray/huaraylogin';//華瑞登入
-import page1 from './Nanhai/page1'; // 南海
-import LoginTest from './NanhaiTest/LoginTest';//南海測試版
-import PageTest from './NanhaiTest/PageTest';//南海測試
+import React, {useState, useEffect} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Login from './Nanhai/NanhaiLogin'; // 南海登入頁
+import huaraylogin from './Huaray/huaraylogin';//華瑞登入頁
+import NanhaiPage from './Nanhai/NanhaiPage'; // 南海功能選單
+import LoginTest from './NanhaiTest/LoginTest';//南海測試登入頁
+import PageTest from './NanhaiTest/PageTest';//南海測試功能選單
 import LoadingIndicator from './LoadingIndicator'; // 南海
-import huaraypage from './Huaray/huaraypage';//公司功能
-import { NativeModules,NativeEventEmitter,Platform } from 'react-native';
+import huaraypage from './Huaray/huaraypage';//公司功能選單
+import NanhaiWeb from './Nanhai/NanhaiWeb';//南海系統
+import huarayWeb from './Huaray/huarayWeb';//華瑞系統
+import {NativeModules,NativeEventEmitter,Platform} from 'react-native';
 import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 
 import PageWeb from './NanhaiTest/PageWeb';
@@ -57,7 +59,7 @@ function App() {
           <Stack.Navigator initialRouteName="Homea">
             <Stack.Screen name="Homea" component={huaraylogin} options={{ headerShown: true ,title:'首頁'}} />
             <Stack.Screen name="Details" component={huaraypage} options={{ headerShown: true ,title:'功能選單'}}  />
-            <Stack.Screen name="PageWeb" component={PageWeb}  />
+            <Stack.Screen name="PageWeb" component={huarayWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
       );
@@ -68,8 +70,8 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
             <Stack.Screen name="Homea" component={Login} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={page1} options={{ headerShown: true ,title:'功能選單'}}  />
-            <Stack.Screen name="PageWeb" component={PageWeb}  />
+            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="PageWeb" component={NanhaiWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
       );

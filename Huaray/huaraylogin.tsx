@@ -3,7 +3,7 @@ import type {PropsWithChildren} from 'react';
 import { NativeModules  } from 'react-native';
 const { VersionModule } = NativeModules;
 import config from '../Config/config';
-import LoginVoid from './LoginVoid';
+import LoginVoid from './huarayLoginVoid';
 import {
   SafeAreaView,
   ScrollView,
@@ -31,7 +31,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import CutsomButton from './LoginView';
+import CutsomButton from './huarayLoginView';
 
 
 type SectionProps = PropsWithChildren<{

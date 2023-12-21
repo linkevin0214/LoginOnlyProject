@@ -1,4 +1,4 @@
-import { nanhailogin } from '../API/Login';
+import { nanhaitestlogin } from '../API/Login';
 import { NavigationProp } from "@react-navigation/native";
 import {Alert} from 'react-native';
 interface User {
@@ -14,7 +14,7 @@ const LoginVoid = (navigation:NavigationProp<any>,actext: string, pwtext: string
         }; 
         const handlePressByMember = async () =>{
             try{
-            const result = await nanhailogin(actext,pwtext,'rNZgn1pDPnIKbXKurQkDwrvSt');
+            const result = await nanhaitestlogin(actext,pwtext,'rNZgn1pDPnIKbXKurQkDwrvSt');
             console.log('帳號:', actext);
             console.log('密碼:', pwtext);
             sucessFromLogin(result); 

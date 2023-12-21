@@ -2,8 +2,8 @@ import React , { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import { NativeModules  } from 'react-native';
 const { VersionModule } = NativeModules;
-import CutsomButton from './LoginView';
-import LoginVoid  from './LoginVoid';
+import CutsomButton from './NanhaiLoginView';
+import LoginVoid  from './NanhaiLoginVoid';
 import config from '../Config/config';
 import {
   SafeAreaView,

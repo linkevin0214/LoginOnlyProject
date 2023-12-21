@@ -87,7 +87,7 @@ type SectionProps = PropsWithChildren<{
                 style={[styles.foregroundLayer]}></Image>
          </View>
         
-            <View style={[body.block1]}>
+          
             <Card style={[body.content]}>
             <TouchableOpacity onPress={()=>handlePressA()}>
                 <View style={[body.cardLayout]}>
@@ -101,24 +101,8 @@ type SectionProps = PropsWithChildren<{
                     </View>
                     </TouchableOpacity>
                 </Card>
-            </View>
-        
-         
-        {/* <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisibleweb}
-        onRequestClose={() => {
-          setModalVisibleweb(false);
-        }}
-      >
-          <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-          <View style={{width: config.FULL_SCREEN_WIDTH, height: '50%', backgroundColor: 'white'}}>
-              <WebView source={{ uri: config.TEST_NANHAI_MAINURL }} />
-          </View>
-        </View>
-      </Modal> */}
-        <View style={[body.block1]}>
+            
+           
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressB()}>
             <View style={[body.cardLayout]}>
@@ -132,18 +116,7 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisibleshop}
-        onRequestClose={() => {
-          setModalVisibleshop(false);
-        }}
-      >
-        <WebView source={{ uri: config.TEST_NANHAI_SHOP }} /> */}
-      {/* </Modal> */}
-        <View style={[body.block1]}>
+       
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressC()}>
             <View style={[body.cardLayout]}>
@@ -157,18 +130,8 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisibleorder}
-        onRequestClose={() => {
-          setModalVisibleorder(false);
-        }}
-      >
-        <WebView source={{ uri: config.TEST_NANHAI_ORDER }} />
-      </Modal> */}
-        <View style={[body.block1]}>
+      
+       
             <Card style={[body.content]}>
             <TouchableOpacity onPress={()=>handlePressD()}>
             <View style={[body.cardLayout]}>
@@ -182,23 +145,12 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisiblemember}
-        onRequestClose={() => {
-          setModalVisiblemember(false);
-        }}
-      >
-        <WebView source={{ uri: config.TEST_NANHAI_MEMBER }} />
-      </Modal> */}
-
+        
       {
       
         ismember ==='success' && (
           <>
-  <View style={[body.block1]}>
+  
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressE()}>
                 <View style={[body.cardLayout]}>
@@ -212,17 +164,7 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        {/* <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisiblecheck}
-        onRequestClose={() => {
-          setModalVisiblecheck(false);
-        }}
-      >
-        <WebView source={{ uri: config.TEST_NANHAI_URL}} />
-      </Modal> */}
+       
            </>
         )
        
@@ -249,8 +191,8 @@ type SectionProps = PropsWithChildren<{
   
     justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width:  config.FULL_SCREEN_WIDTH,
-    height: config.FULL_SCREEN_HEIGHT*0.16,
+    width:  config.SCREEN_WIDTH,
+    height: config.SCREEN_HEIGHT,
    
     zIndex: 1, 
  
@@ -259,8 +201,8 @@ type SectionProps = PropsWithChildren<{
        
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.15,
+        width:  config.SCREEN_WIDTH,
+        height: config.SCREEN_HEIGHT*0.13,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
         zIndex: 1, 
@@ -268,6 +210,7 @@ type SectionProps = PropsWithChildren<{
       
       },
       content: {
+        marginBottom:10,
         borderRadius: 50,
       },
   });
@@ -275,12 +218,14 @@ type SectionProps = PropsWithChildren<{
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:50,
+        width:70,
         height:70,
+        marginRight:15
       },
    
       marginRight: {
-        marginRight: 10,  // 為左邊的卡片添加右邊距
+        marginRight: 20,  // 為左邊的卡片添加右邊距
+      
       },
       title: {
         height:config.FULL_SCREEN_HEIGHT*0.08,
@@ -289,6 +234,7 @@ type SectionProps = PropsWithChildren<{
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居
         color: '#000', // 可选背景色
+        marginRight:10
       },
       text: {
         color: 'white',
@@ -297,7 +243,7 @@ type SectionProps = PropsWithChildren<{
  
       foregroundLayer: {
         width:  config.FULL_SCREEN_WIDTH*0.5,
-        padding: 10,
+        padding: 5,
         height: config.FULL_SCREEN_HEIGHT*0.5,
         resizeMode: 'contain', // 调整图片大小以完整显示
         flexDirection: 'column', // 或 'row'

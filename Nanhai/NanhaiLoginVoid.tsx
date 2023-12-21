@@ -1,4 +1,4 @@
-import { nanhailogin } from '../API/Login';
+import {nanhailogin } from '../API/Login';
 import { NavigationProp } from "@react-navigation/native";
 import {Alert} from 'react-native';
 interface User {

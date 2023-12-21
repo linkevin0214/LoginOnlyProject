@@ -21,6 +21,8 @@ import {
   Modal
 } from 'react-native';
 import { WebView } from 'react-native-webview';
+import WebViewModal from '../WebView/WebViewModal';
+
 import {
   Colors,
   DebugInstructions,
@@ -28,35 +30,43 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { useNavigation } from '@react-navigation/native';
 import {Card,Title,Paragraph, Avatar} from 'react-native-paper';
+import { fontConfig } from 'react-native-paper/lib/typescript/styles/fonts';
+import huarayVoid from './huarayVoid';
 type SectionProps = PropsWithChildren<{
     title: string;
   }>;
 
-
   function App({ route,navigation }: any): JSX.Element {
-    const { ismember } = route.params;
+  
     const [text, setText] = useState('');
-    const handlePress = () => {
-      navigation.navigate('Details');
-      };
+    const {ismember}=route.params;
+   
     const isDarkMode = useColorScheme() === 'dark';
 
     const fullstyles = StyleSheet.create({
         fullScreenImage: {
           flex: 1, 
           position: 'absolute', // 使用绝对定位
-          width: config.FULL_SCREEN_WIDTH,
+          width:   config.FULL_SCREEN_WIDTH,
           height: config.FULL_SCREEN_HEIGHT*1.1, 
         
         },
       });
-      const [modalVisiblework, setModalVisiblework] = useState(false);
-      const [modalVisible, setModalVisible] = useState(false);
+      // const [modalVisibleweb, setModalVisibleweb] = useState(false);
+      // const [modalVisibleorder, setModalVisibleorder] = useState(false);
+      // const [modalVisiblemember, setModalVisiblemember] = useState(false);
+      // const [modalVisibleshop, setModalVisibleshop] = useState(false);
+      // const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
+      const { handlePressA } = huarayVoid(navigation);
+      const { handlePressB } = huarayVoid(navigation);
+    
+
     return (
      
       <SafeAreaView style={{ flex: 1 }}>
-        <KeyboardAvoidingView
+        {/* <KeyboardAvoidingView
         style={[
           body.container,
         {
@@ -65,76 +75,56 @@ type SectionProps = PropsWithChildren<{
         },
       ]}
       behavior={Platform.OS === "ios" ? "padding" : "position"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
         <Image
-        source={require('../pic/huaraybg.png')}
+        source={require('../pic/bg.jpg')}
         style={[fullstyles.fullScreenImage]} />
          <View style={[body.block]}>
             <Image
-                source={require('../pic/loadinglogo.png')}
+                source={require('../pic/logo.png')}
                 style={[styles.foregroundLayer]}></Image>
          </View>
-         
-            <View style={[body.block1]}>
+         <View style={[body.block1]}>
             <Card style={[body.content]}>
-            <TouchableOpacity onPress={()=>setModalVisiblework(true)}>
+            <TouchableOpacity onPress={()=>handlePressA()}>
                 <View style={[body.cardLayout]}>
                         <Image
                         source={require('../pic/03.png')}
                         style={styles.image}
                         />
                         <View >
-                        <Text style={[styles.title]}>員工管控</Text>
+                        <Text style={[styles.title]}>華瑞管控</Text>
                         </View>
                     </View>
                     </TouchableOpacity>
                 </Card>
             </View>
+        
+         {
       
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisiblework}
-        onRequestClose={() => {
-            setModalVisiblework(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://work.huaray.com.tw/admin/index/index.php' }} />
-      </Modal>
+        ismember ==='success' && (
+          <>
+  <View style={[body.block1]}>
+        <Card style={[body.content]}>
+        <TouchableOpacity onPress={()=>handlePressB()}>
+                <View style={[body.cardLayout]}>
+                    <Image
+                    source={require('../pic/01.png')}
+                    style={styles.image}
+                    />
+                    <View >
+                    <Text style={[styles.title]}>華瑞打卡</Text>
+                    </View>
+                </View>
+                </TouchableOpacity>
+            </Card>
+        </View>
+           </>
+        )
        
-       
-      {
-ismember === 'success' && (
-  <>
-    <View style={[body.block1]}>
-      <Card style={[body.content]}>
-        <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <View style={[body.cardLayout]}>
-            <Image
-              source={require('../pic/02.png')}
-              style={styles.image}
-            />
-            <View>
-              <Text style={[styles.title]}>員工打卡</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
-      </Card>
-    </View>
-    <Modal
-      animationType="slide"
-      transparent={false}
-      visible={modalVisible}
-      onRequestClose={() => {
-        setModalVisible(false);
-      }}
-    >
-      <WebView source={{ uri: 'https://checkin_test.huaray.com.tw/login.php' }} />
-    </Modal>
-    </>
-  )
-}
-      </KeyboardAvoidingView>
+      }
+      
+      {/* </KeyboardAvoidingView> */}
       </SafeAreaView>
       );
   }
@@ -165,7 +155,7 @@ ismember === 'success' && (
        
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH*0.9,
+        width:  config.FULL_SCREEN_WIDTH,
         height: config.FULL_SCREEN_HEIGHT*0.15,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
@@ -181,10 +171,8 @@ ismember === 'success' && (
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width: config.FULL_SCREEN_WIDTH*0.2 ,
-        height:config.FULL_SCREEN_HEIGHT*0.12,
-        borderRadius: 25,
-
+        width:50,
+        height:70,
       },
    
       marginRight: {
@@ -206,7 +194,7 @@ ismember === 'success' && (
       foregroundLayer: {
         width:  config.FULL_SCREEN_WIDTH*0.5,
         padding: 10,
-        height:config.FULL_SCREEN_HEIGHT*0.5,
+        height: config.FULL_SCREEN_HEIGHT*0.5,
         resizeMode: 'contain', // 调整图片大小以完整显示
         flexDirection: 'column', // 或 'row'
         justifyContent: 'center',

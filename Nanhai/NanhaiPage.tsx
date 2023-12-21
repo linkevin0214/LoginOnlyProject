@@ -21,6 +21,8 @@ import {
   Modal
 } from 'react-native';
 import { WebView } from 'react-native-webview';
+import WebViewModal from '../WebView/WebViewModal';
+
 import {
   Colors,
   DebugInstructions,
@@ -28,17 +30,19 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { useNavigation } from '@react-navigation/native';
 import {Card,Title,Paragraph, Avatar} from 'react-native-paper';
+import { fontConfig } from 'react-native-paper/lib/typescript/styles/fonts';
+import NanhaiVoid from './NanhaiVoid';
 type SectionProps = PropsWithChildren<{
     title: string;
   }>;
 
   function App({ route,navigation }: any): JSX.Element {
+  
     const [text, setText] = useState('');
     const {ismember}=route.params;
-    const handlePress = () => {
-      navigation.navigate('Details');
-      };
+   
     const isDarkMode = useColorScheme() === 'dark';
 
     const fullstyles = StyleSheet.create({
@@ -50,15 +54,21 @@ type SectionProps = PropsWithChildren<{
         
         },
       });
-      const [modalVisibleweb, setModalVisibleweb] = useState(false);
-      const [modalVisibleorder, setModalVisibleorder] = useState(false);
-      const [modalVisiblemember, setModalVisiblemember] = useState(false);
-      const [modalVisibleshop, setModalVisibleshop] = useState(false);
-      const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
+      // const [modalVisibleweb, setModalVisibleweb] = useState(false);
+      // const [modalVisibleorder, setModalVisibleorder] = useState(false);
+      // const [modalVisiblemember, setModalVisiblemember] = useState(false);
+      // const [modalVisibleshop, setModalVisibleshop] = useState(false);
+      // const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
+      const { handlePressA } = NanhaiVoid(navigation);
+      const { handlePressB } = NanhaiVoid(navigation);
+      const { handlePressC } = NanhaiVoid(navigation);
+      const { handlePressD } = NanhaiVoid(navigation);
+      const { handlePressE } = NanhaiVoid(navigation);
+
     return (
      
       <SafeAreaView style={{ flex: 1 }}>
-        <KeyboardAvoidingView
+        {/* <KeyboardAvoidingView
         style={[
           body.container,
         {
@@ -67,7 +77,7 @@ type SectionProps = PropsWithChildren<{
         },
       ]}
       behavior={Platform.OS === "ios" ? "padding" : "position"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
         <Image
         source={require('../pic/bg.jpg')}
         style={[fullstyles.fullScreenImage]} />
@@ -79,7 +89,7 @@ type SectionProps = PropsWithChildren<{
         
             <View style={[body.block1]}>
             <Card style={[body.content]}>
-            <TouchableOpacity onPress={()=>setModalVisibleweb(true)}>
+            <TouchableOpacity onPress={()=>handlePressA()}>
                 <View style={[body.cardLayout]}>
                         <Image
                         source={require('../pic/01.png')}
@@ -92,21 +102,9 @@ type SectionProps = PropsWithChildren<{
                     </TouchableOpacity>
                 </Card>
             </View>
-       
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisibleweb}
-        onRequestClose={() => {
-          setModalVisibleweb(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://www.nanhaisado.com.tw/' }} 
-         scalesPageToFit={true}/>
-      </Modal>
         <View style={[body.block1]}>
         <Card style={[body.content]}>
-        <TouchableOpacity onPress={()=>setModalVisibleshop(true)}>
+        <TouchableOpacity onPress={()=>handlePressB()}>
             <View style={[body.cardLayout]}>
                     <Image
                     source={require('../pic/04.png')}
@@ -119,19 +117,9 @@ type SectionProps = PropsWithChildren<{
                 </TouchableOpacity>
             </Card>
         </View>
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisibleshop}
-        onRequestClose={() => {
-          setModalVisibleshop(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://shop.nanhaisado.com.tw/' }} />
-      </Modal>
         <View style={[body.block1]}>
         <Card style={[body.content]}>
-        <TouchableOpacity onPress={()=>setModalVisibleorder(true)}>
+        <TouchableOpacity onPress={()=>handlePressC()}>
             <View style={[body.cardLayout]}>
                     <Image
                     source={require('../pic/05.png')}
@@ -144,19 +132,9 @@ type SectionProps = PropsWithChildren<{
                 </TouchableOpacity>
             </Card>
         </View>
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisibleorder}
-        onRequestClose={() => {
-          setModalVisibleorder(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://pos.nanhaisado.com.tw/huarayorder/' }} />
-      </Modal>
         <View style={[body.block1]}>
             <Card style={[body.content]}>
-            <TouchableOpacity onPress={()=>setModalVisiblemember(true)}>
+            <TouchableOpacity onPress={()=>handlePressD()}>
             <View style={[body.cardLayout]}>
                     <Image
                     source={require('../pic/03.png')}
@@ -169,16 +147,6 @@ type SectionProps = PropsWithChildren<{
                 </TouchableOpacity>
             </Card>
         </View>
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisiblemember}
-        onRequestClose={() => {
-          setModalVisiblemember(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://apitest.nanhaisado.com.tw/' }} />
-      </Modal>
 
       {
       
@@ -186,7 +154,7 @@ type SectionProps = PropsWithChildren<{
           <>
   <View style={[body.block1]}>
         <Card style={[body.content]}>
-        <TouchableOpacity onPress={()=>setModalVisiblecheck(true)}>
+        <TouchableOpacity onPress={()=>handlePressE()}>
                 <View style={[body.cardLayout]}>
                     <Image
                     source={require('../pic/02.png')}
@@ -199,22 +167,12 @@ type SectionProps = PropsWithChildren<{
                 </TouchableOpacity>
             </Card>
         </View>
-        <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisiblecheck}
-        onRequestClose={() => {
-          setModalVisiblecheck(false);
-        }}
-      >
-        <WebView source={{ uri: 'https://testnanhaihr.openpos.com.tw/' }} />
-      </Modal>
            </>
         )
        
       }
       
-      </KeyboardAvoidingView>
+      {/* </KeyboardAvoidingView> */}
       </SafeAreaView>
       );
   }
@@ -245,7 +203,7 @@ type SectionProps = PropsWithChildren<{
        
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH*0.9,
+        width:  config.FULL_SCREEN_WIDTH,
         height: config.FULL_SCREEN_HEIGHT*0.15,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
@@ -261,10 +219,8 @@ type SectionProps = PropsWithChildren<{
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width: config.FULL_SCREEN_WIDTH*0.2 ,
-        height:config.FULL_SCREEN_HEIGHT*0.12,
-        borderRadius: 25,
-
+        width:50,
+        height:70,
       },
    
       marginRight: {
