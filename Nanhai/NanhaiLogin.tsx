@@ -21,7 +21,9 @@ import {
   TextInput,
   Alert,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 import {
@@ -64,6 +66,8 @@ type SectionProps = PropsWithChildren<{
       });
       
     return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+     
       <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView 
       
@@ -76,7 +80,7 @@ type SectionProps = PropsWithChildren<{
         
       },
     ]}   
-    behavior={Platform.OS === "ios" ? "padding" : "position"}
+    behavior={Platform.OS === "ios" ? "position" : "position"}
     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
  
  <Image
@@ -97,14 +101,14 @@ type SectionProps = PropsWithChildren<{
       </View>
      
       <View style={[body.block3]}>
-      <TextInput placeholder="員工帳號" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
+      <TextInput placeholder="員工帳號" placeholderTextColor="#D0D0D0" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
 
 
       </View>
      
    
       <View style={[body.block4]}>
-      <TextInput placeholder="員工密碼" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
+      <TextInput placeholder="員工密碼" placeholderTextColor="#D0D0D0" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
       </View>
     
      
@@ -115,8 +119,9 @@ type SectionProps = PropsWithChildren<{
 
 
      
-      </KeyboardAvoidingView >
+      </KeyboardAvoidingView>
      </SafeAreaView>
+     </TouchableWithoutFeedback>
     );
   }
   const body = StyleSheet.create({
@@ -163,7 +168,7 @@ block4:{
   justifyContent: 'center', // 垂直居中
   alignItems: 'center', // 水平居中
   width: config.FULL_SCREEN_WIDTH,
-  height: config.FULL_SCREEN_HEIGHT*0.15,
+  height: config.FULL_SCREEN_HEIGHT*0.1,
  
   zIndex: 1, 
 
@@ -186,8 +191,8 @@ block5:{
       },
       input: {
         width:'50%',
-        height:config.FULL_SCREEN_HEIGHT,
-        fontSize: 20, 
+        height:config.FULL_SCREEN_HEIGHT*0.08,
+        fontSize: config.FULL_SCREEN_WIDTH*0.05, 
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
         textAlign: 'center', // 这会让 placeholder 文本和用户输入的文本都居中
@@ -198,12 +203,11 @@ block5:{
       },
       input1: {
         width:'50%',
-        height:config.FULL_SCREEN_HEIGHT,
+        height:config.FULL_SCREEN_HEIGHT*0.08,
+        fontSize: config.FULL_SCREEN_WIDTH*0.05, 
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        fontSize: 20, // 这也会影响 placeholder 文本的字体大小
         backgroundColor: '#EFF4FA', // 可选背景色
-    
         borderRadius: 50,
         textAlign: 'center', // 这会让 placeholder 文本和用户输入的文本都居中
        

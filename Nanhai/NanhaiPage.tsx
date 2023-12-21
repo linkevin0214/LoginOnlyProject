@@ -87,7 +87,7 @@ type SectionProps = PropsWithChildren<{
                 style={[styles.foregroundLayer]}></Image>
          </View>
         
-            <View style={[body.block1]}>
+           
             <Card style={[body.content]}>
             <TouchableOpacity onPress={()=>handlePressA()}>
                 <View style={[body.cardLayout]}>
@@ -101,8 +101,8 @@ type SectionProps = PropsWithChildren<{
                     </View>
                     </TouchableOpacity>
                 </Card>
-            </View>
-        <View style={[body.block1]}>
+            
+       
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressB()}>
             <View style={[body.cardLayout]}>
@@ -116,8 +116,8 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        <View style={[body.block1]}>
+       
+       
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressC()}>
             <View style={[body.cardLayout]}>
@@ -131,8 +131,8 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
-        <View style={[body.block1]}>
+        
+       
             <Card style={[body.content]}>
             <TouchableOpacity onPress={()=>handlePressD()}>
             <View style={[body.cardLayout]}>
@@ -146,13 +146,13 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
+       
 
       {
       
         ismember ==='success' && (
           <>
-  <View style={[body.block1]}>
+ 
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressE()}>
                 <View style={[body.cardLayout]}>
@@ -166,7 +166,7 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
+       
            </>
         )
        
@@ -193,18 +193,15 @@ type SectionProps = PropsWithChildren<{
   
     justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width:  config.FULL_SCREEN_WIDTH,
-    height: config.FULL_SCREEN_HEIGHT*0.16,
-   
+    width:  config.SCREEN_WIDTH,
+    height: config.SCREEN_HEIGHT,
     zIndex: 1, 
- 
  },
      cardLayout: {
-       
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.15,
+        width:  config.SCREEN_WIDTH,
+        height: config.SCREEN_HEIGHT*0.13,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
         zIndex: 1, 
@@ -213,14 +210,16 @@ type SectionProps = PropsWithChildren<{
       },
       content: {
         borderRadius: 50,
+        marginBottom:10,
       },
   });
   const styles = StyleSheet.create({
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:50,
+        width:70,
         height:70,
+        marginRight:15
       },
    
       marginRight: {
@@ -233,6 +232,7 @@ type SectionProps = PropsWithChildren<{
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居
         color: '#000', // 可选背景色
+        marginRight:10
       },
       text: {
         color: 'white',

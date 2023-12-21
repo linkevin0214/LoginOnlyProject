@@ -84,7 +84,7 @@ type SectionProps = PropsWithChildren<{
                 source={require('../pic/logo.png')}
                 style={[styles.foregroundLayer]}></Image>
          </View>
-         <View style={[body.block1]}>
+         
             <Card style={[body.content]}>
             <TouchableOpacity onPress={()=>handlePressA()}>
                 <View style={[body.cardLayout]}>
@@ -98,13 +98,13 @@ type SectionProps = PropsWithChildren<{
                     </View>
                     </TouchableOpacity>
                 </Card>
-            </View>
+           
         
          {
       
         ismember ==='success' && (
           <>
-  <View style={[body.block1]}>
+ 
         <Card style={[body.content]}>
         <TouchableOpacity onPress={()=>handlePressB()}>
                 <View style={[body.cardLayout]}>
@@ -118,7 +118,7 @@ type SectionProps = PropsWithChildren<{
                 </View>
                 </TouchableOpacity>
             </Card>
-        </View>
+      
            </>
         )
        
@@ -145,8 +145,8 @@ type SectionProps = PropsWithChildren<{
   
     justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width:  config.FULL_SCREEN_WIDTH,
-    height: config.FULL_SCREEN_HEIGHT*0.16,
+    width:  config.SCREEN_WIDTH,
+    height: config.SCREEN_HEIGHT,
    
     zIndex: 1, 
  
@@ -156,7 +156,7 @@ type SectionProps = PropsWithChildren<{
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
         width:  config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.15,
+        height: config.FULL_SCREEN_HEIGHT*0.13,
         borderRadius: 50,
         backgroundColor: '#DADEE2',
         zIndex: 1, 
@@ -164,6 +164,7 @@ type SectionProps = PropsWithChildren<{
       
       },
       content: {
+        marginBottom:10,
         borderRadius: 50,
       },
   });
@@ -171,8 +172,9 @@ type SectionProps = PropsWithChildren<{
     image: {
         justifyContent: 'center', // 垂直居中
         alignItems: 'center', // 水平居中
-        width:50,
+        width:70,
         height:70,
+        marginBottom:15
       },
    
       marginRight: {

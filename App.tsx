@@ -109,7 +109,7 @@ function App() {
           <Stack.Navigator initialRouteName="Homea">
           <Stack.Screen name="Homea" component={huaraylogin} options={{ headerShown: true ,title:'首頁'}} />
             <Stack.Screen name="Details" component={huaraypage} options={{ headerShown: true ,title:'功能選單'}}  />
-            <Stack.Screen name="PageWeb" component={PageWeb}  />
+            <Stack.Screen name="PageWeb" component={huarayWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
       );
@@ -119,8 +119,8 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
           <Stack.Screen name="Homea" component={Login} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={page1} options={{ headerShown: true ,title:'功能選單'}}  />
-            <Stack.Screen name="PageWeb" component={PageWeb}  />
+            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="PageWeb" component={NanhaiWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
       );
