@@ -19,9 +19,9 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
-  Modal
+  Modal,
 } from 'react-native';
-import { WebView } from 'react-native-webview';
+import {WebView} from 'react-native-webview';
 import WebViewModal from '../WebView/WebViewModal';
 
 import {
@@ -31,62 +31,59 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { useNavigation } from '@react-navigation/native';
-import {Card,Title,Paragraph, Avatar} from 'react-native-paper';
-import { fontConfig } from 'react-native-paper/lib/typescript/styles/fonts';
+import {useNavigation} from '@react-navigation/native';
+import {Card, Title, Paragraph, Avatar} from 'react-native-paper';
+import {fontConfig} from 'react-native-paper/lib/typescript/styles/fonts';
 type SectionProps = PropsWithChildren<{
-    title: string;
-  }>;
+  title: string;
+}>;
 
-  function App({ route,navigation }: any): JSX.Element {
-    useEffect(() => {
-        const {webtype,title,isVisiable} = route.params??{};   
-        const navTitle = title ?? `預設標題 - 類型 ${webtype ?? ''}`;
-        console.log(navTitle);
-        navigation.setOptions({ title: navTitle });
-      }, [route.params?.title, navigation]);
-  
-    const [text, setText] = useState('');
-    const { webtype, title,isVisiable } = route.params ?? {};
+function App({route, navigation}: any): JSX.Element {
+  useEffect(() => {
+    const {webtype, title, isVisiable} = route.params ?? {};
+    const navTitle = title ?? `預設標題 - 類型 ${webtype ?? ''}`;
+    console.log(navTitle);
+    navigation.setOptions({title: navTitle});
+  }, [route.params?.title, navigation]);
 
+  const [text, setText] = useState('');
+  const {webtype, title, isVisiable} = route.params ?? {};
 
-    const isDarkMode = useColorScheme() === 'dark';
+  const isDarkMode = useColorScheme() === 'dark';
 
-    const fullstyles = StyleSheet.create({
-        fullScreenImage: {
-          flex: 1, 
-          position: 'absolute', // 使用绝对定位
-          width:   config.FULL_SCREEN_WIDTH,
-          height: config.FULL_SCREEN_HEIGHT*1.1, 
-        
-        },
-      });
-      const [modalVisibleweb, setModalVisibleweb] = useState(false);
-      const [modalVisibleorder, setModalVisibleorder] = useState(false);
-      const [modalVisiblemember, setModalVisiblemember] = useState(false);
-      const [modalVisibleshop, setModalVisibleshop] = useState(false);
-      const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
-      useEffect(() => {
-          if (webtype===1&&isVisiable) {
-            setModalVisibleweb(true);
-            }
-          if (webtype===2&&isVisiable) {
-            setModalVisibleorder(true);
-          }
-          if (webtype===3&&isVisiable) {
-            setModalVisiblemember(true);
-          }
-          if (webtype===4&&isVisiable) {
-            setModalVisibleshop(true);
-          }
-          if (webtype===5&&isVisiable) {
-            setModalVisiblecheck(true);
-          }
-      }, [isVisiable]);
-    return (
-     
-      <SafeAreaView style={{ flex: 1 }}>
-        {/* <KeyboardAvoidingView
+  const fullstyles = StyleSheet.create({
+    fullScreenImage: {
+      flex: 1,
+      position: 'absolute', // 使用绝对定位
+      width: config.FULL_SCREEN_WIDTH,
+      height: config.FULL_SCREEN_HEIGHT * 1.1,
+    },
+  });
+  const [modalVisibleweb, setModalVisibleweb] = useState(false);
+  const [modalVisibleorder, setModalVisibleorder] = useState(false);
+  const [modalVisiblemember, setModalVisiblemember] = useState(false);
+  const [modalVisibleshop, setModalVisibleshop] = useState(false);
+  const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
+  useEffect(() => {
+    if (webtype === 1 && isVisiable) {
+      setModalVisibleweb(true);
+    }
+    if (webtype === 2 && isVisiable) {
+      setModalVisibleorder(true);
+    }
+    if (webtype === 3 && isVisiable) {
+      setModalVisiblemember(true);
+    }
+    if (webtype === 4 && isVisiable) {
+      setModalVisibleshop(true);
+    }
+    if (webtype === 5 && isVisiable) {
+      setModalVisiblecheck(true);
+    }
+  }, [isVisiable]);
+  return (
+    <SafeAreaView style={{flex: 1}}>
+      {/* <KeyboardAvoidingView
         style={[
           body.container,
         {
@@ -96,145 +93,109 @@ type SectionProps = PropsWithChildren<{
       ]}
       behavior={Platform.OS === "ios" ? "padding" : "position"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
-        <Image
+      <Image
         source={require('../pic/bg.jpg')}
-        style={[fullstyles.fullScreenImage]} />
-     
-         {
-      
-            webtype ===1 && (
-                <>
-           
-            <WebView source={{ uri: config.TEST_NANHAI_MAINURL }} />
-            
-         
-                </>
-            )
-        }
-          {
-      
-      webtype ===4 && (
-          <>
-     
-      <WebView source={{ uri: config.TEST_NANHAI_SHOP }} />
-      
-   
-          </>
-      )
-  }
-    {
-      
-      webtype ===2 && (
-          <>
-     
-      <WebView source={{ uri: config.TEST_NANHAI_ORDER }} />
-      
-   
-          </>
-      )
-  }
-    {
-      
-      webtype ===3 && (
-          <>
-     
-      <WebView source={{ uri: config.TEST_NANHAI_MEMBER }} />
-      
-   
-          </>
-      )
-  }
-    {
-      
-      webtype ===5 && (
-          <>
-     
-      <WebView source={{ uri: config.TEST_NANHAI_URL }} />
-      
-   
-          </>
-      )
-  }
-    
-         
+        style={[fullstyles.fullScreenImage]}
+      />
+
+      {webtype === 1 && (
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_MAINURL}} />
+        </>
+      )}
+      {webtype === 4 && (
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_SHOP}} />
+        </>
+      )}
+      {webtype === 2 && (
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_ORDER}} />
+        </>
+      )}
+      {webtype === 3 && (
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_MEMBER}} />
+        </>
+      )}
+      {webtype === 5 && (
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_URL}} />
+        </>
+      )}
+
       {/* </KeyboardAvoidingView> */}
-      </SafeAreaView>
-      );
-  }
-  const body = StyleSheet.create({
-    container: {
-      flex: 1,
-      width:  config.FULL_SCREEN_WIDTH,
-      height: config.FULL_SCREEN_HEIGHT,
-    },
-    block:{
-      justifyContent: 'center', // 垂直居中
-      alignItems: 'center', // 水平居中
-      width:  config.FULL_SCREEN_WIDTH,
-      height: config.FULL_SCREEN_HEIGHT*0.15,
-      zIndex: 1, 
-   },
-   block1:{
-  
+    </SafeAreaView>
+  );
+}
+const body = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: config.FULL_SCREEN_WIDTH,
+    height: config.FULL_SCREEN_HEIGHT,
+  },
+  block: {
     justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width:  config.FULL_SCREEN_WIDTH,
-    height: config.FULL_SCREEN_HEIGHT*0.16,
-   
-    zIndex: 1, 
- 
- },
-     cardLayout: {
-       
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.15,
-        borderRadius: 50,
-        backgroundColor: '#DADEE2',
-        zIndex: 1, 
-        flexDirection: 'row',
-      
-      },
-      content: {
-        borderRadius: 50,
-      },
-  });
-  const styles = StyleSheet.create({
-    image: {
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居中
-        width:50,
-        height:70,
-      },
-   
-      marginRight: {
-        marginRight: 10,  // 為左邊的卡片添加右邊距
-      },
-      title: {
-        height:config.FULL_SCREEN_HEIGHT*0.08,
-        fontSize:  config.FULL_SCREEN_WIDTH*0.09, 
-        fontWeight: 'bold',
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居
-        color: '#000', // 可选背景色
-      },
-      text: {
-        color: 'white',
-        fontSize: 36,
-      },
- 
-      foregroundLayer: {
-        width:  config.FULL_SCREEN_WIDTH*0.5,
-        padding: 10,
-        height: config.FULL_SCREEN_HEIGHT*0.5,
-        resizeMode: 'contain', // 调整图片大小以完整显示
-        flexDirection: 'column', // 或 'row'
-        justifyContent: 'center',
-        alignItems: 'center',
-       
-      },
-  });
-  
-  export default App;
-  
+    width: config.FULL_SCREEN_WIDTH,
+    height: config.FULL_SCREEN_HEIGHT * 0.15,
+    zIndex: 1,
+  },
+  block1: {
+    justifyContent: 'center', // 垂直居中
+    alignItems: 'center', // 水平居中
+    width: config.FULL_SCREEN_WIDTH,
+    height: config.FULL_SCREEN_HEIGHT * 0.16,
+
+    zIndex: 1,
+  },
+  cardLayout: {
+    justifyContent: 'center', // 垂直居中
+    alignItems: 'center', // 水平居中
+    width: config.FULL_SCREEN_WIDTH,
+    height: config.FULL_SCREEN_HEIGHT * 0.15,
+    borderRadius: 50,
+    backgroundColor: '#DADEE2',
+    zIndex: 1,
+    flexDirection: 'row',
+  },
+  content: {
+    borderRadius: 50,
+  },
+});
+const styles = StyleSheet.create({
+  image: {
+    justifyContent: 'center', // 垂直居中
+    alignItems: 'center', // 水平居中
+    width: 50,
+    height: 70,
+  },
+
+  marginRight: {
+    marginRight: 10, // 為左邊的卡片添加右邊距
+  },
+  title: {
+    height: config.FULL_SCREEN_HEIGHT * 0.08,
+    fontSize: config.FULL_SCREEN_WIDTH * 0.09,
+    fontWeight: 'bold',
+    justifyContent: 'center', // 垂直居中
+    alignItems: 'center', // 水平居
+    color: '#000', // 可选背景色
+  },
+  text: {
+    color: 'white',
+    fontSize: 36,
+  },
+
+  foregroundLayer: {
+    width: config.FULL_SCREEN_WIDTH * 0.5,
+    padding: 10,
+    height: config.FULL_SCREEN_HEIGHT * 0.5,
+    resizeMode: 'contain', // 调整图片大小以完整显示
+    flexDirection: 'column', // 或 'row'
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default App;
