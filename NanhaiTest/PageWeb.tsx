@@ -108,17 +108,17 @@ function App({route, navigation}: any): JSX.Element {
           <WebView source={{uri: config.TEST_NANHAI_MEMBER}} />
         </>
       )}
-      {webtype === 2 && (
+      {webtype === 2 && (//購物
         <>
           <WebView source={{uri: config.TEST_NANHAI_SHOP}} />
         </>
       )}
-      {webtype === 3 && (
+      {webtype === 3 && (//線上點餐
         <>
           <WebView source={{uri: config.TEST_NANHAI_ORDER}} />
         </>
       )}
-      {webtype === 5 && (
+      {webtype === 5 && (//打卡
         <>
           <WebView source={{uri: config.TEST_NANHAI_URL}} />
         </>
