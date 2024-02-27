@@ -86,31 +86,31 @@ type SectionProps = PropsWithChildren<{
     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}>
  
  <Image
-      source={require('../pic/bg.jpg')}
+      source={require('../pic/bg1.jpg')}
       style={[fullstyles.fullScreenImage]} />
        <View style={[body.block]}>
        <Image
-      source={require('../pic/logo.png')}
+      source={require('../pic/logo1.png')}
       style={[styles.foregroundLayer]}></Image>
          </View>
         
          <View style={[body.block1]}>
           
       <Text style={[styles.title]}>登入</Text>
-      <Text style={[styles.title]}>LOGIN</Text>
       </View>
-      <View style={[body.block2]}>
-      <CutsomButton title="一般登入" onPress={handlePress}/>
-      </View>
+    
 
       <View style={[body.block3]}>
-      <TextInput placeholder="員工帳號" placeholderTextColor="#D0D0D0" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
+      <Image source={require('../pic/vectoruser.png')} style={styles.image} />
+      <TextInput placeholder="帳號" placeholderTextColor="#BDBDBD" style={[styles.input]}  onChangeText={handleInputChange} value={actext}/>
       </View>
         
       
    
       <View style={[body.block4]}>
-      <TextInput placeholder="員工密碼" placeholderTextColor="#D0D0D0" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
+      <Image source={require('../pic/vectorpwd2.png')} style={styles.image} />
+
+      <TextInput placeholder="密碼" placeholderTextColor="#BDBDBD" style={[styles.input1]}  onChangeText={handleInputpwChange} value={pwtext}/>
       </View>
  
       <View style={[body.block5]}>
@@ -132,18 +132,16 @@ type SectionProps = PropsWithChildren<{
       height: config.FULL_SCREEN_HEIGHT,
     },
      block:{
-        justifyContent: 'center', // 垂直居中
+       
         alignItems: 'center', // 水平居中
-        width: config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.1,
+        marginTop:62,
         zIndex: 1, 
      },
      block1:{
-      justifyContent: 'center', // 垂直居中
       alignItems: 'center', // 水平居中
-      width: config.FULL_SCREEN_WIDTH,
-      height: config.FULL_SCREEN_HEIGHT*0.2,
-     
+
+      marginTop:60,
+  
       zIndex: 1, 
    
    },
@@ -157,70 +155,80 @@ type SectionProps = PropsWithChildren<{
  
  },
  block3:{
-  justifyContent: 'center', // 垂直居中
+  width:260,
+  height:50,
+  backgroundColor: '#FFFFFF', // 可选背景色
+  flexDirection: 'row',
   alignItems: 'center', // 水平居中
-  width: config.FULL_SCREEN_WIDTH,
-  height: config.FULL_SCREEN_HEIGHT*0.1,
- 
+  borderWidth:1,
+  borderColor:'gray',
+  borderRadius:5,
+  marginLeft:75,
+  marginTop:25,
   zIndex: 1, 
-
 },
 block4:{
-  justifyContent: 'center', // 垂直居中
+  width:260,
+  height:50,
+  backgroundColor: '#FFFFFF', // 可选背景色
+  flexDirection: 'row',
   alignItems: 'center', // 水平居中
-  width: config.FULL_SCREEN_WIDTH,
-  height: config.FULL_SCREEN_HEIGHT*0.1,
- 
+  borderWidth:1,
+  borderColor:'gray',
+  borderRadius:5,
+  marginLeft:75,
+  marginTop:25,
   zIndex: 1, 
 
 },
 block5:{
-  justifyContent: 'center', // 垂直居中
   alignItems: 'center', // 水平居中
-  width: config.FULL_SCREEN_WIDTH,
-  height: config.FULL_SCREEN_HEIGHT*0.2,
- 
+  width:260,
+  height:50,
+  marginLeft:75,
+  marginTop:25,
   zIndex: 1, 
 
 },
   });
   const styles = StyleSheet.create({
  
-    
+    image: {
+
+      width:17,
+      height:21,
+      marginLeft:10,
+      backgroundColor: '#FFFFFF', // 可选背景色
+
+   
+    },
       input: {
-        width:'50%',
-        height:config.FULL_SCREEN_HEIGHT*0.08,
-        fontSize: config.FULL_SCREEN_WIDTH*0.05,
-        alignItems: 'center', // 水平居中
-        textAlign: 'center', // 这会让 placeholder 文本和用户输入的文本都居中
-        backgroundColor: '#EFF4FA', // 可选背景色
-        borderRadius: 50,
-        padding:10,       
+        width:260,
+        height:50,
+        borderRadius: 5,
+        paddingLeft:10,      
+        flex:1 
+        
       },
       input1: {
-        width:'50%',
-        height:config.FULL_SCREEN_HEIGHT*0.08,
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居中
-        fontSize: config.FULL_SCREEN_WIDTH*0.05, // 这也会影响 placeholder 文本的字体大小
-        backgroundColor: '#EFF4FA', // 可选背景色
-    
-        borderRadius: 50,
-        textAlign: 'center', // 这会让 placeholder 文本和用户输入的文本都居中
-       
+        backgroundColor: '#FFFFFF', // 可选背景色
+        borderRadius: 5,
+        paddingLeft:10,      
+        flex:1 
       },
     title: {
-        height:config.FULL_SCREEN_HEIGHT*0.08,
-        fontSize: config.FULL_SCREEN_WIDTH*0.09, 
+       
+        fontSize: 20, 
         fontWeight: 'bold',
-        justifyContent: 'center', // 垂直居中
+     
         alignItems: 'center', // 水平居
-        color: '#476041', // 可选背景色
+        color: '#FFFFFF', // 可选背景色
       },
     foregroundLayer: {
-        width: config.FULL_SCREEN_WIDTH*0.5,
+    
         padding: 10,
-        height:config.FULL_SCREEN_HEIGHT*0.5,
+        width:230,
+        height:78,
         resizeMode: 'contain', // 调整图片大小以完整显示
         flexDirection: 'column', // 或 'row'
         justifyContent: 'center',

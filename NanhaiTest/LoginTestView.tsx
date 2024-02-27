@@ -18,17 +18,18 @@ const CutsomButton:React.FC<CustomButtonProps> =({title,onPress,style,textStyle}
 const styles = StyleSheet.create({
   
       button: {
-        width:'50%',
-        height:'50%',
-        backgroundColor: '#476041',
-        justifyContent: 'center', // 垂直居中
+        width:260,
+        height:50,
+        backgroundColor: 'rgba(71, 96, 66, 1)',
         alignItems: 'center', // 水平居中
-        borderRadius: 25,
-        fontSize: config.FULL_SCREEN_WIDTH*0.05, 
+        borderRadius: 5,
       },
       text: {
+        width:34,
+        height:23,
+        marginTop:14,
         color: 'white',
-        fontSize: config.FULL_SCREEN_WIDTH*0.05, 
+        fontSize: 16, 
       },
     });
     export default CutsomButton;

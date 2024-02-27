@@ -21,7 +21,7 @@ export const nanhailogin = async (u_id: string, u_password: string, key: string)
 export const nanhaitestlogin = async (u_id: string, u_password: string, key: string): Promise<any> => {
     console.log('Sending login request...');
     try {
-        const response = await axios.post(config.TEST_NANHAI_URL, {}, { // 注意这里的请求体为空
+        const response = await axios.post(config.TEST_NANHAIAPI_URL, {}, { // 注意这里的请求体为空
             params: {
                 u_id: u_id,
                 u_password: u_password,

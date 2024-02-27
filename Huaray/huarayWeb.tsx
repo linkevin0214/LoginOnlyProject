@@ -61,12 +61,16 @@ function App({route, navigation}: any): JSX.Element {
   });
   const [modalVisiblework, setModalVisiblework] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisibleMain,setModalVisibleMain] = useState(false);
   useEffect(() => {
     if (webtype === 1 && isVisiable) {
       setModalVisiblework(true);
     }
     if (webtype === 2 && isVisiable) {
       setModalVisible(true);
+    } 
+    if (webtype === 3 && isVisiable) {
+      setModalVisibleMain(true);
     }
 
   }, [isVisiable]);
@@ -83,13 +87,13 @@ function App({route, navigation}: any): JSX.Element {
       behavior={Platform.OS === "ios" ? "padding" : "position"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
       <Image
-        source={require('../pic/bg.jpg')}
+        source={require('../pic/bg1.jpg')}
         style={[fullstyles.fullScreenImage]}
       />
 
       {webtype === 1 && (
         <>
-          <WebView source={{uri: config.TEST_NANHAI_MAINURL}} />
+          <WebView source={{uri: config.HUARAY_CONTROL}} />
         </>
       )}
       {webtype === 4 && (
@@ -99,12 +103,12 @@ function App({route, navigation}: any): JSX.Element {
       )}
       {webtype === 2 && (
         <>
-          <WebView source={{uri: config.TEST_NANHAI_ORDER}} />
+          <WebView source={{uri: config.HUARAY_URL}} />
         </>
       )}
       {webtype === 3 && (
         <>
-          <WebView source={{uri: config.TEST_NANHAI_MEMBER}} />
+          <WebView source={{uri: config.HUARAY_MAIN}} />
         </>
       )}
       {webtype === 5 && (

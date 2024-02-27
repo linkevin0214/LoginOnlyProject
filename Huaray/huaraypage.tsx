@@ -61,6 +61,8 @@ type SectionProps = PropsWithChildren<{
       // const [modalVisiblecheck, setModalVisiblecheck] = useState(false);
       const { handlePressA } = huarayVoid(navigation);
       const { handlePressB } = huarayVoid(navigation);
+      const { handlePressC } = huarayVoid(navigation);
+
     
 
     return (
@@ -77,53 +79,58 @@ type SectionProps = PropsWithChildren<{
       behavior={Platform.OS === "ios" ? "padding" : "position"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
         <Image
-        source={require('../pic/bg.jpg')}
+        source={require('../pic/bg1.jpg')}
         style={[fullstyles.fullScreenImage]} />
          <View style={[body.block]}>
             <Image
-                source={require('../pic/logo.png')}
+                source={require('../pic/logo1.png')}
                 style={[styles.foregroundLayer]}></Image>
          </View>
-         
-            <Card style={[body.content]}>
-            <TouchableOpacity onPress={()=>handlePressA()}>
-                <View style={[body.cardLayout]}>
+         <View>
+          <Text style={[styles.maintitle]}>服務項目</Text>
+          </View>
+          <TouchableOpacity style={[body.cardLayout]} onPress={()=>handlePressC()}>
+              <View style={styles.imageback2}>
+              <Image
+                    source={require('../pic/01.png')}
+                    style={[styles.image]}
+              />
+              </View>
+                  <Text style={[styles.title]}>官方網站</Text>
+            </TouchableOpacity>
+           
+            <TouchableOpacity style={[body.cardLayout]} onPress={()=>handlePressA()}>
+            <View style={styles.imageback}>
                         <Image
                         source={require('../pic/03.png')}
                         style={styles.image}
                         />
-                        <View >
+                      
                         <Text style={[styles.title]}>華瑞管控</Text>
-                        </View>
+                        
                     </View>
                     </TouchableOpacity>
-                </Card>
+                
            
-        
-         {
+                {
       
-        ismember ==='success' && (
-          <>
- 
-        <Card style={[body.content]}>
-        <TouchableOpacity onPress={()=>handlePressB()}>
-                <View style={[body.cardLayout]}>
-                    <Image
-                    source={require('../pic/01.png')}
-                    style={styles.image}
-                    />
-                    <View >
-                    <Text style={[styles.title]}>華瑞打卡</Text>
-                    </View>
-                </View>
-                </TouchableOpacity>
-            </Card>
-      
-           </>
-        )
-       
-      }
-      
+      ismember ==='success' && (
+        <>
+
+     
+      <TouchableOpacity style={[body.cardLayout]}  onPress={()=>handlePressB()}>
+                <View style={styles.imageback5}>
+                  <Image
+                  source={require('../pic/02.png')}
+                  style={styles.image}
+                  />
+                  </View>
+                  <Text style={[styles.title]}>員工打卡</Text>
+              </TouchableOpacity>
+              </>
+      )
+     
+    }
       {/* </KeyboardAvoidingView> */}
       </SafeAreaView>
       );
@@ -131,62 +138,104 @@ type SectionProps = PropsWithChildren<{
   const body = StyleSheet.create({
     container: {
       flex: 1,
-      width:  config.FULL_SCREEN_WIDTH,
-      height: config.FULL_SCREEN_HEIGHT,
+     
     },
     block:{
-      justifyContent: 'center', // 垂直居中
       alignItems: 'center', // 水平居中
-      width:  config.FULL_SCREEN_WIDTH,
-      height: config.FULL_SCREEN_HEIGHT*0.15,
+      marginTop:36,
       zIndex: 1, 
    },
    block1:{
-  
-    justifyContent: 'center', // 垂直居中
     alignItems: 'center', // 水平居中
-    width:  config.SCREEN_WIDTH,
-    height: config.SCREEN_HEIGHT,
-   
+    marginTop:55,
     zIndex: 1, 
- 
  },
      cardLayout: {
-       
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居中
-        width:  config.FULL_SCREEN_WIDTH,
-        height: config.FULL_SCREEN_HEIGHT*0.13,
-        borderRadius: 50,
-        backgroundColor: '#DADEE2',
-        zIndex: 1, 
-        flexDirection: 'row',
-      
+       width:280,
+       height:70,
+       borderRadius: 50,
+       backgroundColor: 'rgba(255, 255, 255, 0.8)',
+       marginLeft:75,
+       marginTop:10,
+       flexDirection: 'row', //
+       zIndex: 1, 
       },
-      content: {
-        marginBottom:10,
-        borderRadius: 50,
-      },
+     
   });
+    
   const styles = StyleSheet.create({
+    imageback:{
+      width:40,
+      height:40,
+      marginLeft:30,
+      marginTop:15,
+      borderRadius:100,
+      backgroundColor:'rgba(229, 144, 126, 1)',
+     
+    },
+    imageback2:{
+      width:40,
+      height:40,
+      marginLeft:30,
+      marginTop:15,
+      borderRadius:100,
+      backgroundColor:'rgba(114, 144, 42, 1)',
+     
+    },
+    imageback3:{
+      width:40,
+      height:40,
+      marginLeft:30,
+      marginTop:15,
+      borderRadius:100,
+      backgroundColor:'rgba(132, 201, 84, 1)',
+     
+    },
+    imageback4:{
+      width:40,
+      height:40,
+      marginLeft:30,
+      marginTop:15,
+      borderRadius:100,
+      backgroundColor:'rgba(94, 143, 244, 1)',
+     
+    },
+    imageback5:{
+      width:40,
+      height:40,
+      marginLeft:30,
+      marginTop:15,
+      borderRadius:100,
+      backgroundColor:'rgba(224, 166, 118, 1)',
+     
+    },
     image: {
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居中
-        width:70,
-        height:70,
-        marginBottom:15
+        width:20,
+        height:20,
+        marginLeft:10,
+        marginTop:10,
+        
       },
    
       marginRight: {
-        marginRight: 10,  // 為左邊的卡片添加右邊距
+        marginRight: 20,  // 為左邊的卡片添加右邊距
+      
+      },
+      maintitle:{
+        fontSize: 20, 
+        width:86,
+        height:29,
+        fontWeight: 'bold',
+        color: 'rgba(255, 255, 255, 1)', // 可选背景色
+        marginLeft:175,
+        marginTop:25,
       },
       title: {
-        height:config.FULL_SCREEN_HEIGHT*0.08,
-        fontSize:  config.FULL_SCREEN_WIDTH*0.09, 
+        color: 'rgba(71, 96, 66, 1)', // 可选背景色
+        marginLeft:15,
+        marginTop:25,
         fontWeight: 'bold',
-        justifyContent: 'center', // 垂直居中
-        alignItems: 'center', // 水平居
-        color: '#000', // 可选背景色
+        fontSize: 18, 
       },
       text: {
         color: 'white',
@@ -194,13 +243,9 @@ type SectionProps = PropsWithChildren<{
       },
  
       foregroundLayer: {
-        width:  config.FULL_SCREEN_WIDTH*0.5,
-        padding: 10,
-        height: config.FULL_SCREEN_HEIGHT*0.5,
-        resizeMode: 'contain', // 调整图片大小以完整显示
-        flexDirection: 'column', // 或 'row'
-        justifyContent: 'center',
-        alignItems: 'center',
+        width:230,
+        height:78,
+        marginLeft:25,
        
       },
   });

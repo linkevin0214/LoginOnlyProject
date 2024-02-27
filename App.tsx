@@ -70,7 +70,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
             <Stack.Screen name="Homea" component={Login} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'服務項目'}}  />
             <Stack.Screen name="PageWeb" component={NanhaiWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
@@ -81,7 +81,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
             <Stack.Screen name="Homea" component={LoginTest} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={PageTest} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="Details" component={PageTest} options={{ headerShown: true ,title:'服務項目'}}  />
             <Stack.Screen name="PageWeb" component={PageWeb}  />
 
           </Stack.Navigator>
@@ -108,7 +108,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
           <Stack.Screen name="Homea" component={huaraylogin} options={{ headerShown: true ,title:'首頁'}} />
-            <Stack.Screen name="Details" component={huaraypage} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="Details" component={huaraypage} options={{ headerShown: true ,title:'服務項目'}}  />
             <Stack.Screen name="PageWeb" component={huarayWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
@@ -119,7 +119,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
           <Stack.Screen name="Homea" component={Login} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="Details" component={NanhaiPage} options={{ headerShown: true ,title:'服務項目'}}  />
             <Stack.Screen name="PageWeb" component={NanhaiWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
@@ -130,7 +130,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Homea">
           <Stack.Screen name="Homea" component={LoginTest} options={{ headerShown: true,title:'首頁' }} />
-            <Stack.Screen name="Details" component={PageTest} options={{ headerShown: true ,title:'功能選單'}}  />
+            <Stack.Screen name="Details" component={PageTest} options={{ headerShown: true ,title:'服務項目'}}  />
             <Stack.Screen name="PageWeb" component={PageWeb}  />
           </Stack.Navigator>
         </NavigationContainer>
