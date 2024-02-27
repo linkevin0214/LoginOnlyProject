@@ -11,12 +11,14 @@ interface User {
 const huarayVoid = (navigation:NavigationProp<any>) =>{
     const handlePressA = () => {navigation.navigate('PageWeb', { title: '華瑞管控',webtype:1,isVisiable:true})}; 
     const handlePressB = () => {navigation.navigate('PageWeb', { title: '華瑞打卡',webtype:2,isVisiable:true })}; 
-  
+    const handlePressC = () => {navigation.navigate('PageWeb', { title: '華瑞官網',webtype:3,isVisiable:true })}; 
+
 
     
         return {
             handlePressA,
             handlePressB,
+            handlePressC,
         };
 };
 

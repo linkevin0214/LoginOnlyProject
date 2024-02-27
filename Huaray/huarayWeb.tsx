@@ -103,7 +103,7 @@ function App({route, navigation}: any): JSX.Element {
       )}
       {webtype === 2 && (
         <>
-          <WebView source={{uri: config.HUARAY_URL}} />
+          <WebView source={{uri: config.HUARAY_MAIN_MEMBER}} />
         </>
       )}
       {webtype === 3 && (

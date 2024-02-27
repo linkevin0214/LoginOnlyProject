@@ -103,22 +103,22 @@ function App({route, navigation}: any): JSX.Element {
           <WebView source={{uri: config.TEST_NANHAI_MAINURL}} />
         </>
       )}
-      {webtype === 4 && (
-        <>
-          <WebView source={{uri: config.TEST_NANHAI_SHOP}} />
-        </>
-      )}
-      {webtype === 2 && (
-        <>
-          <WebView source={{uri: config.TEST_NANHAI_ORDER}} />
-        </>
-      )}
-      {webtype === 3 && (
+      {webtype === 4 && (//會員
         <>
           <WebView source={{uri: config.TEST_NANHAI_MEMBER}} />
         </>
       )}
-      {webtype === 5 && (
+      {webtype === 2 && (//購物
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_SHOP}} />
+        </>
+      )}
+      {webtype === 3 && (//線上點餐
+        <>
+          <WebView source={{uri: config.TEST_NANHAI_ORDER}} />
+        </>
+      )}
+      {webtype === 5 && (//打卡
         <>
           <WebView source={{uri: config.TEST_NANHAI_URL}} />
         </>

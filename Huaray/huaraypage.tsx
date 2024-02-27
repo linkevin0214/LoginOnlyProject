@@ -79,11 +79,11 @@ type SectionProps = PropsWithChildren<{
       behavior={Platform.OS === "ios" ? "padding" : "position"}
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 10}> */}
         <Image
-        source={require('../pic/bg1.jpg')}
+        source={require('../pic/huaraybg.png')}
         style={[fullstyles.fullScreenImage]} />
          <View style={[body.block]}>
             <Image
-                source={require('../pic/logo1.png')}
+                source={require('../pic/loadinglogo.png')}
                 style={[styles.foregroundLayer]}></Image>
          </View>
          <View>
@@ -105,10 +105,10 @@ type SectionProps = PropsWithChildren<{
                         source={require('../pic/03.png')}
                         style={styles.image}
                         />
-                      
+                      </View>
                         <Text style={[styles.title]}>華瑞管控</Text>
                         
-                    </View>
+                  
                     </TouchableOpacity>
                 
            
@@ -243,10 +243,13 @@ type SectionProps = PropsWithChildren<{
       },
  
       foregroundLayer: {
+        padding: 10,
         width:230,
         height:78,
-        marginLeft:25,
-       
+        resizeMode: 'contain', // 调整图片大小以完整显示
+        flexDirection: 'column', // 或 'row'
+        justifyContent: 'center',
+        alignItems: 'center',
       },
   });
   
